@@ -1,0 +1,57 @@
+version: "3.8"
+
+services:
+  webScrappingStockX:
+    image: python:3.8
+    working_dir: /app
+    volumes:
+      - ./WebScrapping/stockx:/app
+    depends_on:
+      - selenium
+      - db
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://selenium:4444/wd/hub"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+    entrypoint: ["sh", "-c"]
+    command: ["until curl -s http://selenium:4444/wd/hub > /dev/null; do echo waiting for selenium; sleep 2; done && pip install -r requirements.txt && python script.py"]
+  
+  selenium:
+    image: selenium/standalone-chrome:latest
+    ports:
+      - "4444:4444"
+
+  db:
+    image: mysql:8.2.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: snkrs
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+      - ./mysql/dades.sql:/docker-entrypoint-initdb.d/dades.sql
+  
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - 9091:80
+    depends_on:
+      - db
+
+  webScrappingGoat:
+    image: node:20.8.1-bullseye-slim
+    volumes:
+      - ./WebScrapping/goat:/usr/src/app
+    working_dir: /usr/src/app
+    ports:
+      - 8080:8080
+    command: sh -c "npm install && npm run start"
+    depends_on:
+      - db
