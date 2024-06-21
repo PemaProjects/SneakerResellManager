@@ -39,7 +39,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'username' => $request->username,
-            'avatar' => $path // Guardar solo el path relativo a la carpeta public
+            'avatar' => $path
         ]);
         
         $token = $user->createToken('snkrs')->plainTextToken;
