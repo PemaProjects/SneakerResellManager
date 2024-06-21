@@ -19,7 +19,9 @@ use App\Http\Controllers\UserController;
 
 
 Route::post('/register', [UserController::class, 'store']);
+Route::post('/login', [UserController::class, 'login']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-
+    Route::delete('/logout', [UserController::class, 'logout']);
+    Route::put('/edit', [UserController::class, 'edit']);
 });
