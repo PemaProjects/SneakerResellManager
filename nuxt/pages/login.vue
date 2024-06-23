@@ -19,6 +19,7 @@
                         </div>
                     </div>
 
+
             <div class="relative">
                 <input type="password" placeholder="Contraseña" v-model="password" @focus="passwordFocus = true"
                     @blur="passwordFocus = false" :class="{ 'border-white': password }"
@@ -43,7 +44,7 @@
                         class="bg-primary text-white text-sm font-bold w-full py-2 rounded-md hover:bg-primary/70 transition duration-200">Log
                         in</button>
                     <GoogleButton @click="login"/>
-                </form>
+                </form>l
 
         <footer class="flex justify-center items-center text-xs gap-1">
             <p>¿ No tienes cuenta ?</p>

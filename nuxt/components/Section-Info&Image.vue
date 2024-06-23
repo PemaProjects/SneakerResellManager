@@ -1,7 +1,7 @@
 <template>
     <div class="h-screen w-full flex justify-center items-center" :class="{ 'flex-row-reverse': infoRight }">
         <section class="w-[40%] h-[80%] bg-background2" :class="{'rounded-l-3xl': !infoRight, 'rounded-r-3xl': infoRight}">
-            <div class="flex flex-col justify-center items-center h-full gap-12">
+            <div class="flex flex-col justify-center items-center h-full gap-8">
                 <slot />
             </div>
         </section>
