@@ -68,6 +68,7 @@ services:
     restart: always
     depends_on:
       - db
+      - nuxt
 
   nuxt:
     image: node:22.1.0-bullseye-slim

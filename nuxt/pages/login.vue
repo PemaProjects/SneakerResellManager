@@ -9,7 +9,7 @@
                         comoda de todas tus sneakers</p>
                 </header>
 
-                <form action="" class="w-[60%] text-center space-y-4">
+                <form action="" @submit.prevent="login" class="w-[60%] text-center space-y-4">
                     <div class="relative">
                         <input type="text" placeholder="Correo" v-model="email" @focus="emailFocus = true"
                             @blur="emailFocus = false" :class="{ 'border-white': email }"
@@ -44,7 +44,7 @@
                     <button
                         class="bg-primary text-white text-sm font-bold w-full py-2 rounded-md hover:bg-primary/70 transition duration-200">Log
                         in</button>
-                    <GoogleButton />
+                    <GoogleButton @click="login"/>
                 </form>
 
                 <footer class="flex justify-center items-center text-xs gap-1">
@@ -64,6 +64,8 @@
 </template>
 
 <script>
+import comChat from '@/comManager.js';
+
 export default {
     data() {
         return {
@@ -73,6 +75,15 @@ export default {
             passwordFocus: false,
         };
     },
+    methods: {
+        async login() {
+            const res = await comChat.registerGoogle();
+
+            if (res) {
+                console.log("de locos");
+            }
+        }
+    }
 }
 </script>
 
