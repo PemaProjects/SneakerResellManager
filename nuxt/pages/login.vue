@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import comChat from '@/comManager.js';
+import comManager from '@/comManager.js';
 
 export default {
     data() {
@@ -68,11 +68,7 @@ export default {
     },
     methods: {
         async login() {
-            const res = await comChat.registerGoogle();
-
-            if (res) {
-                console.log("de locos");
-            }
+            await comManager.registerGoogle();
         }
     }
 }

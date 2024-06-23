@@ -77,4 +77,9 @@ class UserController extends Controller
         $request->user()->update($request->all());
     }
 
+    public function getUserbyToken(Request $request){
+        return $request->user();
+    }
+
+
 }
