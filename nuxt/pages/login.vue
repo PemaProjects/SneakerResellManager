@@ -7,17 +7,17 @@
                 comoda de todas tus sneakers</p>
         </header>
 
-        <form action="" class="w-[60%] text-center space-y-4">
-            <div class="relative">
-                <input type="text" placeholder="Correo" v-model="email" @focus="emailFocus = true"
-                    @blur="emailFocus = false" :class="{ 'border-white': email }"
-                    class="w-full text-white text-sm py-2 px-4 rounded-md border border-grayText outline-none bg-background focus:border-primary focus:bg-transparent placeholder:text-grayText pr-10">
-                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                    <IconsEmail
-                        :class="{ '!text-primary': emailFocus, 'text-gray-400': !emailFocus && !email, 'text-white': email }"
-                        class="size-5" />
-                </div>
-            </div>
+                <form action="" @submit.prevent="login" class="w-[60%] text-center space-y-4">
+                    <div class="relative">
+                        <input type="text" placeholder="Correo" v-model="email" @focus="emailFocus = true"
+                            @blur="emailFocus = false" :class="{ 'border-white': email }"
+                            class="w-full text-white text-sm py-2 px-4 rounded-md border border-grayText outline-none bg-background focus:border-primary focus:bg-transparent placeholder:text-grayText pr-10">
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                            <IconsEmail
+                                :class="{ '!text-primary': emailFocus, 'text-gray-400': !emailFocus && !email, 'text-white': email }"
+                                class="size-5" />
+                        </div>
+                    </div>
 
 
             <div class="relative">
@@ -40,11 +40,19 @@
                     Recuperar contraseña</NuxtLink>
             </div>
 
+<<<<<<< HEAD
             <button
                 class="bg-primary text-white text-sm font-bold w-full py-2 rounded-md hover:bg-primary/70 transition duration-200">Log
                 in</button>
             <GoogleButton>Log in with Google</GoogleButton>
         </form>
+=======
+                    <button
+                        class="bg-primary text-white text-sm font-bold w-full py-2 rounded-md hover:bg-primary/70 transition duration-200">Log
+                        in</button>
+                    <GoogleButton @click="login"/>
+                </form>
+>>>>>>> c53146310c478fba335ede1383c173cead21123f
 
         <footer class="flex justify-center items-center text-xs gap-1">
             <p>¿ No tienes cuenta ?</p>
@@ -56,6 +64,8 @@
 </template>
 
 <script>
+import comManager from '@/comManager.js';
+
 export default {
     data() {
         return {
@@ -65,6 +75,11 @@ export default {
             passwordFocus: false,
         };
     },
+    methods: {
+        async login() {
+            await comManager.registerGoogle();
+        }
+    }
 }
 </script>
 
