@@ -40,19 +40,11 @@
                     Recuperar contraseña</NuxtLink>
             </div>
 
-<<<<<<< HEAD
-            <button
-                class="bg-primary text-white text-sm font-bold w-full py-2 rounded-md hover:bg-primary/70 transition duration-200">Log
-                in</button>
-            <GoogleButton>Log in with Google</GoogleButton>
-        </form>
-=======
                     <button
                         class="bg-primary text-white text-sm font-bold w-full py-2 rounded-md hover:bg-primary/70 transition duration-200">Log
                         in</button>
                     <GoogleButton @click="login"/>
-                </form>
->>>>>>> c53146310c478fba335ede1383c173cead21123f
+                </form>l
 
         <footer class="flex justify-center items-center text-xs gap-1">
             <p>¿ No tienes cuenta ?</p>
