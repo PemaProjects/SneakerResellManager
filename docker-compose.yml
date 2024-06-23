@@ -68,4 +68,16 @@ services:
     restart: always
     depends_on:
       - db
+
+  nuxt:
+    image: node:22.1.0-bullseye-slim
+    working_dir: /usr/src/app
+    volumes:
+      - ./nuxt:/usr/src/app
+    ports:
+      - 3000:3000
+    environment:
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
+    command: sh -c "npm install -g npm@10.7.0 && npm install && npm run dev"
   
