@@ -1,3 +1,5 @@
 <template>
-    <img src="/public/logo.png" alt="Logo de SNKKRSMAN">
+    <NuxtLink to="/">
+        <img src="/public/logo.png" alt="Logo de SNKKRSMAN">
+    </NuxtLink>
 </template>

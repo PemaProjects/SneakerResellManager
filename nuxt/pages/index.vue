@@ -4,7 +4,7 @@
         <div class="space-y-8">
             <h1 class="uppercase font-bold text-6xl text-balance">Simplifica la reventa de <span
                     class="text-primary">sneakers</span> y maximiza tus ganancias</h1>
-            <p class="text-grayText font-medium">Con nuestra plataforma intuitiva, lleva un control preciso de tu
+            <p class="text-grayText font-medium w-3/4 text-pretty">Lleva un control preciso de tu
                 inventario, gestiona tus ventas y optimiza cada transacción. Ideal para revendedores de sneakers que
                 buscan eficiencia y crecimiento.</p>
             <div class="space-x-12 [&>button:hover]:-translate-y-2 [&>button]:transition [&>button]:duration-200">
