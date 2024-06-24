@@ -6,6 +6,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+
+use App\Mail\RegisterMail;
+
 
 class UserController extends Controller
 {
@@ -43,6 +47,9 @@ class UserController extends Controller
         ]);
         
         $token = $user->createToken('snkrs')->plainTextToken;
+
+        Mail::to($user)->send(new RegisterMail($user));
+
     
         return response()->json(['message' => 'Usuario creado', 'user' => $user, 'token' => $token], 201);
     }

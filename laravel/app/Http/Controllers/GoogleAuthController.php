@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use App\Mail\RegisterMail;
 
 class GoogleAuthController extends Controller
 {
@@ -31,8 +33,10 @@ class GoogleAuthController extends Controller
                     
                 ]);
 
-                $token = $user->createToken('snkrs')->plainTextToken;
-                Auth::login($new_user);
+                $token = $new_user->createToken('snkrs')->plainTextToken;
+                
+                Mail::to($new_user)->send(new RegisterMail($new_user->name));
+
             }else{
                 $token = $user->createToken('snkrs')->plainTextToken;
                 Auth::login($user);
