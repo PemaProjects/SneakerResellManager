@@ -1,9 +1,9 @@
 <template>
     <Section-Info&Image image="/green-bg.png" infoRight>
         <header class="flex flex-col justify-center items-center gap-3">
-            <Logo class="size-16" />
-            <h1 class="text-4xl font-bold">Bienvenido!</h1>
-            <p class="w-2/3 text-center text-pretty">Únete y lleva una gestion sencilla y
+            <Logo class="size-12 md:size-14 2xl:size-16 2xl:mb-2" />
+            <h1 class="text-2xl md:text-3xl 2xl:text-4xl font-bold">Bienvenido!</h1>
+            <p class="text-xs md:text-base 2xl:text-base w-2/3 text-center text-pretty">Únete y lleva una gestion sencilla y
                 comoda de todas tus sneakers</p>
         </header>
 

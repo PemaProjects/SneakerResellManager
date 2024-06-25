@@ -1,23 +1,23 @@
 <template>
     <Section-Info&Image image="/sneakers-bg.jpg">
         <header class="flex flex-col justify-center items-center gap-3">
-            <Logo class="size-16 mb-4" />
-            <h1 class="text-4xl font-bold">Bienvenido!</h1>
-            <p class="w-2/3 text-center text-pretty">Únete y lleva una gestion sencilla y
+            <Logo class="size-16 mb-2" />
+            <h1 class="text-3xl md:text-4xl font-bold">Bienvenido!</h1>
+            <p class="text-sm md:text-base w-2/3 text-center text-pretty">Únete y lleva una gestion sencilla y
                 comoda de todas tus sneakers</p>
         </header>
 
-                <form action="" @submit.prevent="login" class="w-[60%] text-center space-y-4">
-                    <div class="relative">
-                        <input type="text" placeholder="Correo" v-model="email" @focus="emailFocus = true"
-                            @blur="emailFocus = false" :class="{ 'border-white': email }"
-                            class="w-full text-white text-sm py-2 px-4 rounded-md border border-grayText outline-none bg-background focus:border-primary focus:bg-transparent placeholder:text-grayText pr-10">
-                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                            <IconsEmail
-                                :class="{ '!text-primary': emailFocus, 'text-gray-400': !emailFocus && !email, 'text-white': email }"
-                                class="size-5" />
-                        </div>
-                    </div>
+        <form action="" @submit.prevent="login" class="w-[60%] text-center space-y-4">
+            <div class="relative">
+                <input type="text" placeholder="Correo" v-model="email" @focus="emailFocus = true"
+                    @blur="emailFocus = false" :class="{ 'border-white': email }"
+                    class="w-full text-white text-sm py-2 px-4 rounded-md border border-grayText outline-none bg-background focus:border-primary focus:bg-transparent placeholder:text-grayText pr-10">
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <IconsEmail
+                        :class="{ '!text-primary': emailFocus, 'text-gray-400': !emailFocus && !email, 'text-white': email }"
+                        class="size-5" />
+                </div>
+            </div>
 
 
             <div class="relative">
@@ -40,11 +40,11 @@
                     Recuperar contraseña</NuxtLink>
             </div>
 
-                    <button
-                        class="bg-primary text-white text-sm font-bold w-full py-2 rounded-md hover:bg-primary/70 transition duration-200">Log
-                        in</button>
-                    <GoogleButton @click="login"/>
-                </form>
+            <button
+                class="bg-primary text-white text-sm font-bold w-full py-2 rounded-md hover:bg-primary/70 transition duration-200">Log
+                in</button>
+            <GoogleButton @click="login">Log in with Google</GoogleButton>
+        </form>
 
         <footer class="flex justify-center items-center text-xs gap-1">
             <p>¿ No tienes cuenta ?</p>
