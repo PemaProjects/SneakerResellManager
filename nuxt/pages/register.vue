@@ -27,8 +27,12 @@
             </div>
 
             <button type="submit"
-                class="bg-primary text-white text-sm font-bold w-full py-2 rounded-md hover:bg-primary/70 transition duration-200">Sign
-                in</button>
+            :class="{ 'py-2': !loading }"
+                class=" bg-primary text-white text-sm font-bold w-full rounded-md hover:bg-primary/70 transition duration-200">
+                    <span v-if="!loading" key="text">Sign in</span>
+                    <Loader v-if="loading" key="loader" />
+            </button>
+                
             <GoogleButton>Sign in with Google</GoogleButton>
         </form>
 
@@ -53,14 +57,17 @@ export default {
             surname: '',
             email: '',
             password: '',
-            repPassword: ''
+            repPassword: '',
+            loading: false
         }
     },
 
     methods: {
         async register (){
             console.log('Registrando...');
+            this.loading = true;
             await comManager.userRegister(this.name, this.surname, this.email, this.password, this.repPassword)
+            this.loading = false;
             console.log('Registrado!');
         }
     }
