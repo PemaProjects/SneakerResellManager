@@ -7,12 +7,12 @@
                 comoda de todas tus sneakers</p>
         </header>
 
-        <form action="" class="w-[60%] text-center space-y-3">
+        <form @submit.prevent="register" class="w-[60%] text-center space-y-3">
             <div class="w-full flex gap-2 justify-center items-center">
-                <input v-model="nombre" :class="{ 'border-white': nombre }"
+                <input v-model="name" :class="{ 'border-white': name }"
                     class="w-full text-white text-sm py-2 px-4 rounded-md border border-grayText outline-none bg-background focus:border-primary focus:bg-transparent placeholder:text-grayText"
                     type="text" placeholder="Nombre">
-                <input v-model="apellido" :class="{ 'border-white': apellido }"
+                <input v-model="surname" :class="{ 'border-white': surname }"
                     class="w-full text-white text-sm py-2 px-4 rounded-md border border-grayText outline-none bg-background focus:border-primary focus:bg-transparent placeholder:text-grayText"
                     type="text" placeholder="Apellido">
             </div>
@@ -26,8 +26,8 @@
                         y condiciones</span></p>
             </div>
 
-            <button
-                class="bg-primary text-white text-sm font-bold w-full py-2 rounded-md hover:bg-primary/70 transition duration-200">Log
+            <button type="submit"
+                class="bg-primary text-white text-sm font-bold w-full py-2 rounded-md hover:bg-primary/70 transition duration-200">Sign
                 in</button>
             <GoogleButton>Sign in with Google</GoogleButton>
         </form>
@@ -44,14 +44,24 @@
 </template>
 
 <script>
+import comManager from '@/comManager.js';
+
 export default {
     data() {
         return {
-            nombre: '',
-            apellido: '',
+            name: '',
+            surname: '',
             email: '',
             password: '',
             repPassword: ''
+        }
+    },
+
+    methods: {
+        async register (){
+            console.log('Registrando...');
+            await comManager.userRegister(this.name, this.surname, this.email, this.password, this.repPassword)
+            console.log('Registrado!');
         }
     }
 }
