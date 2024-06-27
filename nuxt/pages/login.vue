@@ -40,9 +40,12 @@
                     Recuperar contraseña</NuxtLink>
             </div>
 
-            <button
-                class="bg-primary text-white text-sm font-bold w-full py-2 rounded-md hover:bg-primary/70 transition duration-200">Log
-                in</button>
+            <button :class="{ 'py-2': !loading }"
+                class=" bg-primary text-white text-sm font-bold w-full rounded-md hover:bg-primary/70 transition duration-200">
+                    <span v-if="!loading" key="text">Log in</span>
+                    <Loader v-if="loading" key="loader" />
+            </button>
+
             <GoogleButton @click="loginGoogle">Log in with Google</GoogleButton>
         </form>
 
@@ -65,12 +68,15 @@ export default {
             emailFocus: false,
             password: '',
             passwordFocus: false,
+            loading: false
         };
     },
     methods: {
         async login() {
             console.log('Logging in ...');
+            this.loading = true
             await comManager.userLogin(this.email, this.password);
+            this.loading = false
             console.log('logged in!');
             this.$router.push('/');
         },
