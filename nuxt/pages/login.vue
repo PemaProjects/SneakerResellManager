@@ -7,7 +7,7 @@
                 comoda de todas tus sneakers</p>
         </header>
 
-        <form action="" @submit.prevent="login" class="w-[60%] text-center space-y-4">
+        <form @submit.prevent="login" class="w-[60%] text-center space-y-4">
             <div class="relative">
                 <input type="text" placeholder="Correo" v-model="email" @focus="emailFocus = true"
                     @blur="emailFocus = false" :class="{ 'border-white': email }"
@@ -43,7 +43,7 @@
             <button
                 class="bg-primary text-white text-sm font-bold w-full py-2 rounded-md hover:bg-primary/70 transition duration-200">Log
                 in</button>
-            <GoogleButton @click="login">Log in with Google</GoogleButton>
+            <GoogleButton @click="loginGoogle">Log in with Google</GoogleButton>
         </form>
 
         <footer class="flex justify-center items-center text-xs gap-1">
@@ -69,6 +69,13 @@ export default {
     },
     methods: {
         async login() {
+            console.log('Logging in ...');
+            await comManager.userLogin(this.email, this.password);
+            console.log('logged in!');
+            this.$router.push('/');
+        },
+
+        async loginGoogle() {
             await comManager.registerGoogle();
         }
     }
