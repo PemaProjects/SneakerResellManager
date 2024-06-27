@@ -62,4 +62,9 @@ class SneakerController extends Controller
     {
         //
     }
+
+    public function getSneakersByName(Request $request){
+        $sneakers = Sneaker::where('name', 'like', '%' . $request->name . '%')->paginate(10);
+        return $sneakers;
+    }
 }

@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\SneakerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +26,5 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::delete('/logout', [UserController::class, 'logout']);
     Route::put('/edit', [UserController::class, 'edit']);
     Route::get('/user', [UserController::class, 'getUserbyToken']);
+    Route::get('/sneakers', [SneakerController::class, 'getSneakersByName']);
 });
