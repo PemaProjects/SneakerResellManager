@@ -1,10 +1,10 @@
 <template>
     <div class="relative">
-        <input type="text" :value="localValue" @input="updateLocalValue($event.target.value)" @blur="handleBlur" :placeholder="placeholder"
+        <input type="password" :value="localValue" @input="updateLocalValue($event.target.value)" @blur="handleBlur" :placeholder="placeholder"
             @focus="passwordFocus = true" :class="{ 'border-white': localValue }"
             class="w-full text-white text-sm py-2 px-4 rounded-md border border-grayText outline-none bg-background focus:border-primary focus:bg-transparent placeholder:text-grayText pr-10">
         <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-            <IconsEmail
+            <IconsLock
                 :class="{ '!text-primary': passwordFocus, 'text-gray-400': !passwordFocus && !localValue, 'text-white': localValue }"
                 class="size-5" />
         </div>
