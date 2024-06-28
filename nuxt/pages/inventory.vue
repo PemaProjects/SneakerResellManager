@@ -1,4 +1,5 @@
 <template>
+    <SideBar/>
     <div>
         Inventario
     </div>
