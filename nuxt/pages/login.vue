@@ -32,7 +32,7 @@
             </div>
             <div class="w-full flex justify-between items-center pb-3">
                 <div class="flex items-center gap-1">
-                    <input type="checkbox" class="checkbox-primary">
+                    <input type="checkbox" v-model="saveLogin" class="checkbox-primary">
                     <p class="text-[10px] font-semibold text-grayText">Recordar contraseña</p>
                 </div>
                 <NuxtLink to="/forgot-password"
@@ -60,6 +60,7 @@
 
 <script>
 import comManager from '@/comManager.js';
+// import { useStores } from '@/stores/counter';
 
 export default {
     data() {
@@ -68,16 +69,20 @@ export default {
             emailFocus: false,
             password: '',
             passwordFocus: false,
-            loading: false
+            loading: false,
+            saveLogin: false
         };
     },
     methods: {
         async login() {
-            console.log('Logging in ...');
+            store = useStores();
+
             this.loading = true
-            await comManager.userLogin(this.email, this.password);
+            await comManager.userLogin(this.email);
             this.loading = false
-            console.log('logged in!');
+            if (saveLogin) {
+                store.setUser(this.email);
+            }
             this.$router.push('/');
         },
 
