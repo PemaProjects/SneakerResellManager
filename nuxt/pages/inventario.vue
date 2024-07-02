@@ -1,7 +1,7 @@
 <template>
     <SideBar/>
     <div>
-        Inventario
+        
     </div>
 </template>
 

@@ -9,7 +9,7 @@
             <div class="text-xs flex justify-between items-center md:justify-center md:gap-10 md:text-sm lg:text-base lg:block lg:space-x-12 [&>a:hover]:-translate-y-2 [&>a]:transition [&>a]:duration-200">
                 <NuxtLink to="/dashboard" class="bg-gradient-to-r from-primary to-[#B6D497] text-black font-bold px-4 py-3 rounded-md">Ir
                     al dashboard</NuxtLink>
-                <NuxtLink to="/inventory" class="border-2 border-grayText font-bold px-4 py-3 rounded-md">Administrar sneakers</NuxtLink>
+                <NuxtLink to="/inventario" class="border-2 border-grayText font-bold px-4 py-3 rounded-md">Administrar sneakers</NuxtLink>
             </div>
 
         </div>
