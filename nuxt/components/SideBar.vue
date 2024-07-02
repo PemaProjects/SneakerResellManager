@@ -3,10 +3,10 @@
         <nav :style="{ width: active ? '20rem' : '8rem' }"
             class="h-screen fixed top-0 left-0 flex flex-col gap-12 py-10 px-12 transition-all duration-500 ease-in-out border"
             @mouseover="active = true" @mouseleave="active = false">
-            <div class="h-full flex flex-col justify-between items-center">
+            <div class="h-screen flex flex-col justify-between items-center">
                 <div :class="active ? '[&>a]:px-4 [&>a]:w-full' : ''"
-                    class="flex flex-col justify-center items-start gap-6 [&>a]:text-white [&>a]:py-3 [&>a]:transition [&>a]:rounded-md [&>a]:duration-200 [&>a:hover]:bg-selected [&>a:hover]:text-primary">
-                    <div class="flex gap-4 items-center">
+                    class="flex flex-col justify-center items-center gap-6 [&>a]:text-white [&>a]:py-3 [&>a]:transition [&>a]:rounded-md [&>a]:duration-200 [&>a:hover]:bg-selected [&>a:hover]:text-primary">
+                    <div class="flex gap-4 items-center ">
                         <Logo class="size-10" />
                         <h1 :class="active ? 'block' : 'hidden'" class="text-3xl font-bold">SNKRSMAN</h1>
                     </div>
