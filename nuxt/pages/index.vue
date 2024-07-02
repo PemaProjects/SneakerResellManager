@@ -6,7 +6,7 @@
                     class="text-primary">sneakers</span> y maximiza tus ganancias</h1>
             <p class="text-grayText font-medium text-pretty text-center md:w-3/4 md:mx-auto lg:mx-0 lg:text-left 2xl:w-3/4">Nuestra plataforma ayuda a revendedores de sneakers a gestionar inventario y ventas eficientemente.</p>
             
-            <div class="text-xs flex justify-between items-center md:justify-center md:gap-10 md:text-sm lg:text-base lg:block lg:space-x-12 [&>a:hover]:-translate-y-2 [&>a]:transition [&>a]:duration-200">
+            <div class="text-xs flex justify-between items-center md:justify-center md:gap-10 md:text-sm lg:text-base lg:justify-start [&>a:hover]:-translate-y-2 [&>a]:transition [&>a]:duration-200">
                 <NuxtLink to="/dashboard" class="bg-gradient-to-r from-primary to-[#B6D497] text-black font-bold px-4 py-3 rounded-md">Ir
                     al dashboard</NuxtLink>
                 <NuxtLink to="/inventario" class="border-2 border-grayText font-bold px-4 py-3 rounded-md">Administrar sneakers</NuxtLink>
