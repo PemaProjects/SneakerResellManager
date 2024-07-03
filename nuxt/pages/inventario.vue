@@ -1,8 +1,7 @@
 <template>
-    <SideBar/>
-    <div>
-        
-    </div>
+    <Layout>
+        <h1>s</h1>
+    </Layout>
 </template>
 
 <script>
