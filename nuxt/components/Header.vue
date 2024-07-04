@@ -1,16 +1,23 @@
 <template>
-    <div class="flex justify-between items-center">
-        <div class="flex items-center gap-2 md:gap-4 py-4">
-            <Logo class="size-10 md:size-16" />
-            <h1 class="md:text-2xl font-bold">SNKRSMAN</h1>
+    <section class="w-full flex justify-between items-center pt-4">
+        <h1>{{ title }}</h1>
+        <div class="flex items-center gap-6">
+            <button>
+                <IconsNotification class="size-7" />
+            </button>
+            <img class="size-10 object-cover rounded-full" src="https://i.pinimg.com/736x/4d/8f/ce/4d8fcea1a8efb1d2389859dbbe3514de.jpg" alt="">
         </div>
-
-        <NuxtLink to="/login" class="text-xs md:text-base inline-block md:border border-white font-bold py-2 px-5 rounded-md hover:bg-white hover:text-black transition duration-200">Log In</NuxtLink>
-    </div>
+    </section>
 </template>
 
 <script>
 export default {
-
+    props: {
+        title: String
+    }
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>

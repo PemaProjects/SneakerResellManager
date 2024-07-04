@@ -1,7 +1,7 @@
 <template>
-    <div>
-        Inventario
-    </div>
+    <Layout title="Shoes list">
+        <p>aasdasdas</p>
+    </Layout>
 </template>
 
 <script>
