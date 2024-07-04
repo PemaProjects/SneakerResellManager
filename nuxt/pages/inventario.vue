@@ -1,6 +1,6 @@
 <template>
-    <Layout>
-        <h1>s</h1>
+    <Layout title="Shoes list">
+        <p>aasdasdas</p>
     </Layout>
 </template>
 
