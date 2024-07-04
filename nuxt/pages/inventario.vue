@@ -1,5 +1,5 @@
 <template>
-    <Layout title="Shoes list">
+    <Layout title="Inventario">
         <p class="text-xl">Tus sneaker</p>
     </Layout>
 </template>
