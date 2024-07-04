@@ -1,6 +1,6 @@
 <template>
     <Layout title="Shoes list">
-        <p>aasdasdas</p>
+        <p class="text-xl">Tus sneaker</p>
     </Layout>
 </template>
 

@@ -5,7 +5,7 @@
         <main class="w-full h-screen p-6 pl-0 flex flex-col">
             <div class="bg-background2 w-full h-full rounded-2xl py-4 pb-6 px-6 flex flex-col">
                 <Header class="text-4xl font-semibold pt-4" :title="title" />
-                <div class="w-full flex-1 bg-background rounded-2xl py-6 px-6 mt-4 overflow-y-auto">
+                <div class="w-full flex-1 bg-background rounded-2xl py-6 px-8 mt-6 overflow-y-auto">
                     <slot></slot>
                 </div>
             </div>
