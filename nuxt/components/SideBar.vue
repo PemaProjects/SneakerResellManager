@@ -1,6 +1,6 @@
 <template>
         <nav :style="{ width: active ? '20rem' : '8rem' }"
-            class="h-screen flex flex-col gap-12 py-10 px-12 transition-all duration-500 ease-in-out"
+            class="h-screen flex flex-col gap-12 py-14 px-12 transition-all duration-500 ease-in-out"
             @mouseover="active = true" @mouseleave="active = false">
             <div class="h-screen flex flex-col justify-between items-center">
                 <div :class="active ? '[&>a]:px-4 [&>a]:w-full' : ''"

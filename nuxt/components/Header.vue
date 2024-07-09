@@ -1,5 +1,5 @@
 <template>
-    <section class="w-full flex justify-between items-center pt-4">
+    <section class="w-full flex justify-between items-center">
         <h1>{{ title }}</h1>
         <div class="flex items-center gap-6">
             <button>

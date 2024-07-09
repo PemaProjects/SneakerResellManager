@@ -1,7 +1,7 @@
 <template>
-    <div>
-        Dashboard
-    </div>
+    <Layout title="Dashboard">
+        <p>aasdasdas</p>
+    </Layout>
 </template>
 
 <script>
