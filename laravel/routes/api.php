@@ -20,11 +20,11 @@ use App\Http\Controllers\SneakerController;
 
 Route::post('/register', [UserController::class, 'store']);
 Route::post('/login', [UserController::class, 'login']);
+Route::get('/sneakers', [SneakerController::class, 'getSneakersByName']);
 
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::delete('/logout', [UserController::class, 'logout']);
     Route::put('/edit', [UserController::class, 'edit']);
     Route::get('/user', [UserController::class, 'getUserbyToken']);
-    Route::get('/sneakers', [SneakerController::class, 'getSneakersByName']);
 });

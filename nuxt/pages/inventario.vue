@@ -36,7 +36,7 @@
 
     <div>
         <Modal v-if="modal" @close="closeModal">
-            <AddSneaker @close="closeModal" />
+            <AddSneaker @close="closeModal" @sneakerSelected="handleSneakerSelected" />
         </Modal>
     </div>
 
@@ -53,6 +53,11 @@ export default {
     },
 
     methods: {
+
+        handleSneakerSelected(sneaker) {
+            console.log(sneaker)
+        },
+
         closeModal() {
             this.modal = false
         }

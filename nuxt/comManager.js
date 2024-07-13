@@ -35,11 +35,19 @@ async function userLogin(email, password) {
     return res.data;
 }
 
+async function getSneakerByName(name) {
+    const res = await axios.get(`${url}/api/sneakers`, {
+        params: { name }
+    });
+    return res.data;
+}
+
 const comManager = {
     registerGoogle,
     getUser,
     userRegister,
-    userLogin
+    userLogin,
+    getSneakerByName
 };
   
 export default comManager;
