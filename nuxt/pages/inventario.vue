@@ -15,10 +15,10 @@
             </button>
         </div>
 
-        <section class="mt-4">
-            <header class="flex gap-2">
+        <section class="mt-6">
+            <header class="flex gap-2 mb-6">
                 <input type="checkbox" class="col-span-1">
-                <div class="w-full grid grid-cols-9 items-center text-xs font-semibold">
+                <div class="w-full grid grid-cols-9 items-center text-xs font-semibold gap-2">
                     <span class="col-span-3">Titulo</span>
                     <span class="col-span-1">Precio compra</span>
                     <span class="col-span-1">Precio venta</span>
@@ -28,9 +28,9 @@
                     <span class="col-span-1">Beneficio</span>
                 </div>
             </header>
-            <SneakerList v-for="sneaker in sneakers" :key="sneaker.id" :titulo="sneaker.titulo"
+            <SneakerList v-for="sneaker in sneakers" @updateEstado="updateEstado(sneaker.id, $event)" :key="sneaker.id" :image="sneaker.image" :titulo="sneaker.titulo"
                 :precioCompra="sneaker.precioCompra" :precioVenta="sneaker.precioVenta" :fechaCompra="sneaker.fechaCompra"
-                :fechaVenta="sneaker.fechaVenta" :estado="sneaker.estado" :beneficio="sneaker.beneficio" />
+                :fechaVenta="sneaker.fechaVenta" :estado="sneaker.estado" :beneficio="sneaker.beneficio"   />
         </section>
     </Layout>
 
@@ -47,8 +47,8 @@ export default {
     data() {
         return {
             buscar: '',
-            sneakers: {},
-            modal: false
+            sneakers: [],
+            modal: false,
         }
     },
 
@@ -56,6 +56,26 @@ export default {
 
         handleSneakerSelected(sneaker) {
             console.log(sneaker)
+            // console.log(sneaker.img)
+            this.sneakers.push({
+                id: this.sneakers.length + 1,
+                image: sneaker.img,
+                titulo: sneaker.name,
+                precioCompra: "---,--€",
+                precioVenta: "---,--€",
+                fechaCompra: "--/--/----",
+                fechaVenta: "--/--/----",
+                estado: 'Compradas',
+                beneficio: "---,--€"
+            })
+            
+        },
+
+        updateEstado(id, newEstado) {
+            const item = this.sneakers.find(item => item.id === id);
+            if (item) {
+                item.estado = newEstado;
+            }
         },
 
         closeModal() {

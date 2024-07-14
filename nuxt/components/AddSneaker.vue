@@ -7,7 +7,7 @@
             <div class="relative flex bg-background2 rounded-md w-full items-center border text-grayText mt-2">
                 <IconsSearch class="ml-3 size-7" />
                 <input class="text-xl font-semibold rounded-md w-96 px-3 py-2 bg-transparent outline-none"
-                    v-model="buscar" @input="searchSneaker" type="text" placeholder="Buscar sneaker">
+                    v-model="buscar" @input="searchSneaker" type="text" placeholder="Buscar sneaker" autofocus ref="searchInput"> 
 
                 <div v-if="buscar && sneakers"
                     class="absolute top-full left-0 mt-1 w-full rounded-md overflow-hidden bg-background">
@@ -53,12 +53,19 @@ export default {
 
         selectSneaker(sneaker) {
             this.$emit('sneakerSelected', sneaker);
+            this.$emit('close');
         },
 
         closeModal() {
             this.$emit('close')
         }
-    }
+    },
+
+    mounted() {
+        this.$nextTick(() => {
+            this.$refs.searchInput.focus();
+        });
+    },
 }
 </script>
 
